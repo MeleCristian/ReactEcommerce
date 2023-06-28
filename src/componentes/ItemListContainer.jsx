@@ -1,7 +1,14 @@
-import Container from 'react-bootstrap/Container';
+import { useEffect, useState } from "react";
+import ItemList from "./ItemList";
 
-export const ItemListContainer=({greeting="No se especifico greeting"})=>(
-    <Container className='mt-3'>
-        <h2>{greeting}</h2>
-    </Container>
-)
+function ItemListContainer() {
+  const [Productos, SetProductos] = useState([]);
+  useEffect(() => {
+    fetch("datitos.json")
+      .then((response) => response.json())
+      .then((datitos) => SetProductos(datitos));
+  }, []);
+  return <ItemList List={Productos} />;
+}
+
+export default ItemListContainer;

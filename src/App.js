@@ -1,14 +1,14 @@
 import { NavBar } from "./componentes/NavBar";
-import { ItemListContainer } from "./componentes/ItemListContainer";
+import ItemListContainer from "./componentes/ItemListContainer";
 import { Footer } from "./componentes/Footer";
-import ProductCards from "./componentes/ProductCards";
-
+//import ItemList from "./componentes/ItemList";
+//import Item from "./componentes/Item";
 function App() {
   return (
     <>
       <NavBar />
-      <ItemListContainer greeting="Primer React App" />
-      <ProductCards />
+      <ItemListContainer />
+
       <Footer />
     </>
   );
