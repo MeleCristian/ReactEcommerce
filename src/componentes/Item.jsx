@@ -1,6 +1,7 @@
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
-import { ItemCounts } from "./ItemCounts";
+//import { ItemCounts } from "./ItemCounts";
+import Button from "react-bootstrap/Button";
 
 function Item({ Item }) {
   return (
@@ -16,7 +17,7 @@ function Item({ Item }) {
           <ListGroup.Item>Stock: {Item.stock}</ListGroup.Item>
         </ListGroup>
         <Card.Body>
-          <ItemCounts CantStock={Item.stock} />
+          <Button variant="outline-info">Info</Button>
         </Card.Body>
       </Card>
     </>

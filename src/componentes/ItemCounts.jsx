@@ -1,22 +1,9 @@
 import Button from "react-bootstrap/Button";
-import { useState } from "react";
+import { useStock } from "./useStock";
 
 export const ItemCounts = ({ CantStock }) => {
-  const [Stock, SetStock] = useState(CantStock);
-  const [CantVenta, SetVenta] = useState(0);
-
-  const Suma = () => {
-    SetVenta((CantVenta) => CantVenta + 1);
-  };
-
-  const Resta = () => {
-    SetVenta((CantVenta) => CantVenta - 1);
-  };
-
-  const AgregarAlCarrito = () => {
-    SetStock((Stock) => Stock - CantVenta);
-    SetVenta(0);
-  };
+  const { Stock, CantVenta, Suma, Resta, AgregarAlCarrito } =
+    useStock(CantStock);
 
   return (
     <>
