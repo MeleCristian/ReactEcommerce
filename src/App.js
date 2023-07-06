@@ -2,7 +2,7 @@ import NavBar from "./componentes/NavBar";
 import ItemListContainer from "./componentes/ItemListContainer";
 import { Footer } from "./componentes/Footer";
 import { Route, Routes } from "react-router-dom";
-import ItemDetail from "./componentes/ItemDetail";
+import ItemDetailContainer from "./componentes/ItemDetailContainer";
 import { useList } from "./componentes/useList";
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
             />
           );
         })}
-        {/* <Route path="/producto/:id" element={<ItemDetail />} /> */}
+        <Route path="/productos/:id" element={<ItemDetailContainer />} />
       </Routes>
 
       <Footer />

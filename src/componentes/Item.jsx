@@ -1,7 +1,7 @@
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
-//import { ItemCounts } from "./ItemCounts";
-import Button from "react-bootstrap/Button";
+
+import { NavLink } from "react-router-dom";
 
 function Item({ Item }) {
   return (
@@ -17,7 +17,13 @@ function Item({ Item }) {
           <ListGroup.Item>Stock: {Item.stock}</ListGroup.Item>
         </ListGroup>
         <Card.Body>
-          <Button variant="outline-info">Info</Button>
+          <NavLink
+            variant="outline-info"
+            to={`/productos/${Item.id}`}
+            className="btn btn-info"
+          >
+            Info
+          </NavLink>
         </Card.Body>
       </Card>
     </>

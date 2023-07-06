@@ -21,7 +21,6 @@ export const ItemCounts = ({ CantStock }) => {
       >
         Agregar al carrito
       </Button>
-      <span>{Stock}</span>
     </>
   );
 };

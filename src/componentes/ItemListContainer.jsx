@@ -8,7 +8,15 @@ function ItemListContainer({ Filtro }) {
     Productos = Productos.filter((element) => element.anime === Filtro);
   }
 
-  return <ItemList List={Productos} />;
+  return (
+    <>
+      {Productos.length === 0 ? (
+        <h1>LOADING....</h1>
+      ) : (
+        <ItemList List={Productos} />
+      )}
+    </>
+  );
 }
 
 export default ItemListContainer;
