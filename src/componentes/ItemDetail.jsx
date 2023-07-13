@@ -15,7 +15,7 @@ function ItemDetail({ Item }) {
         voluptatibus architecto voluptate porro.
       </div>
 
-      <ItemCounts CantStock={Item.stock} />
+      <ItemCounts Item={Item} />
     </>
   );
 }

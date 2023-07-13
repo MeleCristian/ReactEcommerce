@@ -1,4 +1,4 @@
-import { useList } from "./useList";
+import { useList } from "../customHooks/useList";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
 

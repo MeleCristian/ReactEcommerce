@@ -1,9 +1,8 @@
 import Button from "react-bootstrap/Button";
-import { useStock } from "./useStock";
+import { useStock } from "../customHooks/useStock";
 
-export const ItemCounts = ({ CantStock }) => {
-  const { Stock, CantVenta, Suma, Resta, AgregarAlCarrito } =
-    useStock(CantStock);
+export const ItemCounts = ({ Item }) => {
+  const { Stock, CantVenta, Suma, Resta, AgregarAlCarrito } = useStock(Item);
 
   return (
     <>
