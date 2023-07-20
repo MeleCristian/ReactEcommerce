@@ -2,7 +2,7 @@ import Button from "react-bootstrap/Button";
 import { useStock } from "../customHooks/useStock";
 
 export const ItemCounts = ({ Item }) => {
-  const { Stock, CantVenta, Suma, Resta, AgregarAlCarrito } = useStock(Item);
+  const { Stock, CantVenta, Suma, Resta, addItem } = useStock(Item);
 
   return (
     <>
@@ -15,10 +15,10 @@ export const ItemCounts = ({ Item }) => {
       </Button>
       <Button
         variant="success"
-        onClick={AgregarAlCarrito}
+        onClick={addItem}
         disabled={Stock === 0 || CantVenta === 0}
       >
-        Agregar al carrito
+        Actualizar carrito
       </Button>
     </>
   );

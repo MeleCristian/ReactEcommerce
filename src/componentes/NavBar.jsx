@@ -1,4 +1,4 @@
-import { Cart } from "./CartWidget";
+import { CartWidget } from "./CartWidget";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -23,8 +23,10 @@ function NavBar() {
                 </NavLink>
               );
             })}
+            <NavLink to="/cart">
+              <CartWidget />
+            </NavLink>
           </Nav>
-          <Cart />
         </Container>
       </Navbar>
     </>

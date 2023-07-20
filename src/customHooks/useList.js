@@ -4,7 +4,7 @@ import datitos from "../data/datitos.json";
 export const useList = () => {
   const [Productos, SetProductos] = useState([]);
   useEffect(() => {
-    const promesa = new Promise((resolve, reject) => {
+    const promesa = new Promise((resolve) => {
       setTimeout(() => {
         resolve(datitos);
       }, 1000);

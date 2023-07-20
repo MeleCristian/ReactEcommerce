@@ -1,11 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useContext } from "react";
-import { CartProvider } from "../context/CartContext";
+import { CarritoContext } from "../context/CartContext";
 
 export const useStock = (Item) => {
-  const [Stock, SetStock] = useState(Item.stock);
+  const [Stock] = useState(Item.stock);
   const [CantVenta, SetVenta] = useState(0);
-  const { carrito } = useContext(CartProvider);
+  const { carrito, setCarrito } = useContext(CarritoContext);
+  let carritoAux = carrito;
+  useEffect(() => {
+    carrito.forEach((element) => {
+      if (element.id === Item.id) {
+        SetVenta(element.cantidad);
+      }
+    });
+  }, [carrito, Item.id]);
 
   const Suma = () => {
     SetVenta((CantVenta) => CantVenta + 1);
@@ -14,12 +22,48 @@ export const useStock = (Item) => {
   const Resta = () => {
     SetVenta((CantVenta) => CantVenta - 1);
   };
-
-  const AgregarAlCarrito = () => {
-    SetStock((Stock) => Stock - CantVenta);
-    SetVenta(0);
-    //setCarrito(Item);
-    //console.log(carrito);
+  const isInCart = () => {
+    let aux = false;
+    carrito.forEach((element) => {
+      if (element.id === Item.id) {
+        aux = true;
+      }
+    });
+    return aux;
   };
-  return { Stock, CantVenta, Suma, Resta, AgregarAlCarrito };
+
+  const addItem = () => {
+    if (!isInCart()) {
+      carritoAux.push({ ...Item, cantidad: CantVenta });
+    } else {
+      carritoAux.forEach((element) => {
+        if (element.id === Item.id) {
+          element.cantidad = CantVenta;
+        }
+      });
+    }
+
+    setCarrito(carritoAux);
+  };
+
+  const removeItem = () => {
+    carritoAux.filter((element) => element.id !== Item.id);
+    setCarrito(carritoAux);
+  };
+
+  const clear = () => {
+    carritoAux = [];
+    setCarrito(carritoAux);
+  };
+
+  return {
+    Stock,
+    CantVenta,
+    Suma,
+    Resta,
+    addItem,
+    removeItem,
+    clear,
+    isInCart,
+  };
 };
