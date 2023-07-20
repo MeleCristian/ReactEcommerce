@@ -1,8 +1,11 @@
 import Button from "react-bootstrap/Button";
 import { useStock } from "../customHooks/useStock";
+import { useContext } from "react";
+import { CarritoContext } from "../context/CartContext";
 
 export const ItemCounts = ({ Item }) => {
-  const { Stock, CantVenta, Suma, Resta, addItem } = useStock(Item);
+  const { Stock, CantVenta, Suma, Resta } = useStock(Item);
+  const { addItem } = useContext(CarritoContext);
 
   return (
     <>
@@ -15,8 +18,8 @@ export const ItemCounts = ({ Item }) => {
       </Button>
       <Button
         variant="success"
-        onClick={addItem}
-        disabled={Stock === 0 || CantVenta === 0}
+        onClick={addItem(Item, CantVenta)}
+        disabled={CantVenta === 0}
       >
         Actualizar carrito
       </Button>

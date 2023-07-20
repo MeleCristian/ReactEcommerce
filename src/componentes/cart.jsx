@@ -21,7 +21,10 @@ export const Cart = () => {
         <Col xs={1} className=" border-primary border-end">
           Anime
         </Col>
-        <Col xs={4} className=" border-primary border-end">
+        <Col xs={1} className=" border-primary border-end">
+          Precio Individual
+        </Col>
+        <Col xs={3} className=" border-primary border-end">
           Cantidad
         </Col>
         <Col xs={1} className=" border-primary border-end">
@@ -41,8 +44,11 @@ export const Cart = () => {
             <Col xs={1} className=" border-primary border-end">
               {element.anime}
             </Col>
-            <Col xs={4} className=" border-primary border-end">
-              <ItemCounts Item={element} key={element.id}></ItemCounts>
+            <Col xs={1} className=" border-primary border-end">
+              {element.precio}
+            </Col>
+            <Col xs={3} className=" border-primary border-end">
+              <ItemCounts Item={element}></ItemCounts>
             </Col>
             <Col xs={1} className=" border-primary border-end">
               {element.cantidad * element.precio}

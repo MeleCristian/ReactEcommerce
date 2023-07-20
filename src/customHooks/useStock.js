@@ -5,8 +5,8 @@ import { CarritoContext } from "../context/CartContext";
 export const useStock = (Item) => {
   const [Stock] = useState(Item.stock);
   const [CantVenta, SetVenta] = useState(0);
-  const { carrito, setCarrito } = useContext(CarritoContext);
-  let carritoAux = carrito;
+  const { carrito } = useContext(CarritoContext);
+
   useEffect(() => {
     carrito.forEach((element) => {
       if (element.id === Item.id) {
@@ -22,7 +22,7 @@ export const useStock = (Item) => {
   const Resta = () => {
     SetVenta((CantVenta) => CantVenta - 1);
   };
-  const isInCart = () => {
+  /*  const isInCart = () => {
     let aux = false;
     carrito.forEach((element) => {
       if (element.id === Item.id) {
@@ -54,16 +54,12 @@ export const useStock = (Item) => {
   const clear = () => {
     carritoAux = [];
     setCarrito(carritoAux);
-  };
+  }; */
 
   return {
     Stock,
     CantVenta,
     Suma,
     Resta,
-    addItem,
-    removeItem,
-    clear,
-    isInCart,
   };
 };
