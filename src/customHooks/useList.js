@@ -17,9 +17,6 @@ export const useList = () => {
       }
       SetProductos(auxProdcutos); // eslint-disable-next-line
     });
-
-    // eslint-disable-next-line
-    //console.log(categorias);
   }, []);
   useEffect(() => {
     let categorias = [];
@@ -33,6 +30,7 @@ export const useList = () => {
       if (aux) categorias.push(element.anime);
     });
     SetCategorias(categorias); // eslint-disable-next-line
+    console.log(categorias); // eslint-disable-next-line
   }, []);
   return { Productos, Categorias };
 };

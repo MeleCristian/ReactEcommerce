@@ -1,11 +1,13 @@
+import { useParams } from "react-router-dom";
 import { useList } from "../customHooks/useList";
 import ItemList from "./ItemList";
 
-function ItemListContainer({ Filtro }) {
+function ItemListContainer() {
   let { Productos } = useList();
+  const { cat } = useParams();
 
-  if (Filtro) {
-    Productos = Productos.filter((element) => element.anime === Filtro);
+  if (cat) {
+    Productos = Productos.filter((element) => element.anime === cat);
   }
 
   return (

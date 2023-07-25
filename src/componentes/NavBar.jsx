@@ -18,7 +18,11 @@ function NavBar() {
             </NavLink>
             {Categorias.map((element) => {
               return (
-                <NavLink to={`/${element}`} className="nav-link" key={element}>
+                <NavLink
+                  to={`/categorias/${element}`}
+                  className="nav-link"
+                  key={element}
+                >
                   {element}
                 </NavLink>
               );

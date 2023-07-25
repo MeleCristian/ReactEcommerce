@@ -8,12 +8,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBk1QTbB_x7N2c7YwcajXEkcWmIOdPwim0",
-  authDomain: "anime3dec.firebaseapp.com",
-  projectId: "anime3dec",
-  storageBucket: "anime3dec.appspot.com",
-  messagingSenderId: "356616472070",
-  appId: "1:356616472070:web:a0fd5a2ef05d5555ac6587",
+  apiKey: "AIzaSyAwd3ubETFxwqHIKS2tQxYWqqzSUGbrXDI",
+  authDomain: "prueba-63cb5.firebaseapp.com",
+  projectId: "prueba-63cb5",
+  storageBucket: "prueba-63cb5.appspot.com",
+  messagingSenderId: "288041207329",
+  appId: "1:288041207329:web:df79f32cd1951f39078560",
+  measurementId: "G-G7XDNZ4VZK",
 };
 
 // Initialize Firebase
