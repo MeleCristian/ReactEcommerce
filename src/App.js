@@ -23,8 +23,9 @@ function App() {
   return (
     <>
       <>
-        <NavBar />
         <CartProvider>
+          <NavBar />
+
           <Routes>
             <Route path="/" element={<ItemListContainer />} />
             <Route path="/cart" element={<Cart />} />

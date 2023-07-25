@@ -5,7 +5,9 @@ import ItemDetail from "./ItemDetail";
 function ItemDetailContainer() {
   const { id } = useParams();
   const { Productos } = useList();
-  const Producto = Productos.filter((element) => element.id === Number(id));
+
+  const Producto = Productos.filter((element) => element.id === id);
+
   return (
     <>
       {Productos.length === 0 ? (

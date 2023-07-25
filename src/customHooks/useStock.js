@@ -22,39 +22,6 @@ export const useStock = (Item) => {
   const Resta = () => {
     SetVenta((CantVenta) => CantVenta - 1);
   };
-  /*  const isInCart = () => {
-    let aux = false;
-    carrito.forEach((element) => {
-      if (element.id === Item.id) {
-        aux = true;
-      }
-    });
-    return aux;
-  };
-
-  const addItem = () => {
-    if (!isInCart()) {
-      carritoAux.push({ ...Item, cantidad: CantVenta });
-    } else {
-      carritoAux.forEach((element) => {
-        if (element.id === Item.id) {
-          element.cantidad = CantVenta;
-        }
-      });
-    }
-
-    setCarrito(carritoAux);
-  };
-
-  const removeItem = () => {
-    carritoAux.filter((element) => element.id !== Item.id);
-    setCarrito(carritoAux);
-  };
-
-  const clear = () => {
-    carritoAux = [];
-    setCarrito(carritoAux);
-  }; */
 
   return {
     Stock,

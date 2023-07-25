@@ -1,27 +1,38 @@
 import { useEffect, useState } from "react";
-import datitos from "../data/datitos.json";
+//import datitos from "../data/datitos.json";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
 
 export const useList = () => {
   const [Productos, SetProductos] = useState([]);
+  const [Categorias, SetCategorias] = useState([]);
   useEffect(() => {
-    const promesa = new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(datitos);
-      }, 1000);
-    });
-    promesa.then((result) => SetProductos(result));
-  }, []);
-
-  let Categorias = [];
-  Productos.forEach((element) => {
-    let aux = true;
-    Categorias.forEach((categoria) => {
-      if (element.anime === categoria) {
-        aux = false;
+    const db = getFirestore();
+    const refCollection = collection(db, "items");
+    getDocs(refCollection).then((snapshot) => {
+      let auxProdcutos = [];
+      if (snapshot.size !== 0) {
+        snapshot.docs.map((doc) => {
+          return auxProdcutos.push({ id: doc.id, ...doc.data() });
+        });
       }
+      SetProductos(auxProdcutos); // eslint-disable-next-line
     });
-    if (aux) Categorias.push(element.anime);
-  });
 
+    // eslint-disable-next-line
+    //console.log(categorias);
+  }, []);
+  useEffect(() => {
+    let categorias = [];
+    Productos.forEach((element) => {
+      let aux = true;
+      categorias.forEach((categoria) => {
+        if (element.anime === categoria) {
+          aux = false;
+        }
+      });
+      if (aux) categorias.push(element.anime);
+    });
+    SetCategorias(categorias); // eslint-disable-next-line
+  }, []);
   return { Productos, Categorias };
 };

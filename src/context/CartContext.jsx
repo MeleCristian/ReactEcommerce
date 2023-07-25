@@ -5,7 +5,6 @@ export const CarritoContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [carrito, setCarrito] = useState([]);
-  let carritoAux = [];
 
   const isInCart = (Item) => {
     let aux = false;
@@ -19,26 +18,19 @@ export const CartProvider = ({ children }) => {
 
   const addItem = (Item, CantVenta) => {
     if (!isInCart(Item)) {
-      carritoAux.push({ ...Item, cantidad: CantVenta });
+      setCarrito((prev) => [...prev, { ...Item, cantidad: CantVenta }]);
     } else {
-      carritoAux.forEach((element) => {
-        if (element.id === Item.id) {
-          element.cantidad = CantVenta;
-        }
-      });
+      removeItem(Item.id);
+      setCarrito((prev) => [...prev, { ...Item, cantidad: CantVenta }]);
     }
-
-    setCarrito(carritoAux);
   };
 
-  const removeItem = (Item) => {
-    carritoAux.filter((element) => element.id !== Item.id);
-    setCarrito(carritoAux);
+  const removeItem = (id) => {
+    setCarrito(carrito.filter((element) => element.id !== id));
   };
 
   const clear = () => {
-    carritoAux = [];
-    setCarrito(carritoAux);
+    setCarrito([]);
   };
   return (
     <CarritoContext.Provider
