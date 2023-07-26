@@ -19,6 +19,7 @@ export const useList = () => {
     });
   }, []);
   useEffect(() => {
+    console.log(Productos);
     let categorias = [];
     Productos.forEach((element) => {
       let aux = true;
@@ -30,7 +31,6 @@ export const useList = () => {
       if (aux) categorias.push(element.anime);
     });
     SetCategorias(categorias); // eslint-disable-next-line
-    console.log(categorias); // eslint-disable-next-line
-  }, []);
+  }, [Productos]);
   return { Productos, Categorias };
 };
