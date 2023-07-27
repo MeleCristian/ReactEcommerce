@@ -19,7 +19,6 @@ export const useList = () => {
     });
   }, []);
   useEffect(() => {
-    console.log(Productos);
     let categorias = [];
     Productos.forEach((element) => {
       let aux = true;
